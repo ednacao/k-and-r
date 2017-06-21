@@ -1,13 +1,15 @@
 #include <stdio.h>
 
-/* copy input to output; 2nd version */
+/* verify that getchar() !=EOF is 0 or 1 */
 
 int main(void)
 {
 	int c;
+	char value;
 
-	while ((c = getchar()) !=EOF)
-		putchar(c);
+	value = ((c = getchar()) != EOF);
+
+	printf("\n%d\n", value);
 
 	return 0;
 }
