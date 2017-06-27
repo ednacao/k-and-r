@@ -13,8 +13,10 @@ int main(void)
 		if (c == ' ')
 		{
 			if (prevblank == 0)
+			{
 				putchar(c);
 				prevblank = 1;
+			}
 		}
 		if (c != ' ')
 		{
