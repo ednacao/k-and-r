@@ -1,9 +1,9 @@
+/* write a program that prints its input one word per line */
+
 #include <stdio.h>
 
 #define IN  1	/* inside a word  */
 #define OUT 2   /* outside a word */
-
-/* write a program that prints its input one word per line */
 
 int main(void)
 {
