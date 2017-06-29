@@ -1,6 +1,6 @@
-#include <stdio.h>
-
 /* print Fahrenheit-Celsius table using for loop, decrementing from 300 */
+
+#include <stdio.h>
 
 int main(void)
 {
