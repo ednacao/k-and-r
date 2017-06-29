@@ -1,7 +1,7 @@
-#include <stdio.h>
+/* print Fahrenheit-Celsius table
+   for fahr = 0, 20, ..., 300; floating-point version with header */
 
-/*print Fahrenheit-Celsius table
-   for fahr = 0, 20, ..., 300; floating-point version with header*/
+#include <stdio.h>
 
 int main(void)
 {
