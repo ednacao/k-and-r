@@ -1,4 +1,4 @@
-/* eewrite the temperature conversion program to use a function for conversion */
+/* rewrite the temperature conversion program to use a function for conversion */
 
 #include <stdio.h>
 
