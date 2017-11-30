@@ -17,7 +17,7 @@ int main(void)
       if (len > 80)
       {
         copy(longboy, line);
-        printf("\n\nLength: %d\nLine: %s\n", len, longboy);
+        printf("\n\nLength: %d\nLine: %s\n", len-1, longboy);
       }
 
   return 0;
