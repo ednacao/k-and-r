@@ -11,13 +11,13 @@ int main(void)
 {
   int  len;              /* current line length        */
   char line[MAXLINE];    /* current input line         */
-  char longest[MAXLINE]; /* longest line saved here    */
+  char longboy[MAXLINE]; /* line > 80 chars saved here */
   
   while ((len = getlines(line, MAXLINE)) > 0)
       if (len > 80)
       {
-        copy(longest, line);
-        printf("\n\nLength: %d\nLine: %s\n", len, longest);
+        copy(longboy, line);
+        printf("\n\nLength: %d\nLine: %s\n", len, longboy);
       }
 
   return 0;
