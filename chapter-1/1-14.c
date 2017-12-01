@@ -3,8 +3,8 @@
 #include <stdio.h>
 
 #define FIRST_PRINTABLE_CHAR 32
-#define LAST_PRINTABLE_CHAR 126
-#define PRINTABLE_CHARS      95
+#define LAST_PRINTABLE_CHAR  126
+#define PRINTABLE_CHARS      (LAST_PRINTABLE_CHAR - FIRST_PRINTABLE_CHAR + 1)
 
 int main(void)
 {
