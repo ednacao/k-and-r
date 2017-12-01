@@ -19,14 +19,16 @@ int main(void)
    
    max = 0;
    while ((len = getlines(line, MAXLINE)) > 0)
-       if (len > max)
-       {
-         max = len;
-         copy(longest, line);
-       }
+   {
+     if (len > max)
+     {
+       max = len;
+       copy(longest, line);
+     }
+   }
    if (max > 0)           /* there was a line */
-       printf("Length: %d\nLongest Line: %s\n", max-1, longest);
-       
+       printf("Length: %d\nLongest Line: %s", max-1, longest);
+
    return 0;
 }
 
@@ -49,9 +51,9 @@ int getlines(char s[], int lim)
 /* copy: copy 'from' into 'to'; assume to is big enough */
 void copy(char to[], char from[])
 {
- int i;
- 
- i = 0;
- while ((to[i] = from[i]) != '\0')
- ++i;
+   int i;
+   
+   i = 0;
+   while ((to[i] = from[i]) != '\0')
+   ++i;
 }
