@@ -14,11 +14,12 @@ int main(void)
   char longboy[MAXLINE]; /* line > 80 chars saved here */
   
   while ((len = getlines(line, MAXLINE)) > 0)
-      if (len > 80)
-      {
-        copy(longboy, line);
-        printf("\n\nLength: %d\nLine: %s\n", len-1, longboy);
-      }
+  {
+    if (len > 80)
+    {
+      copy(longboy, line);
+      printf("\n\nLength: %d\nLine: %s\n", len-1, longboy);
+    }
 
   return 0;
 }
@@ -42,9 +43,9 @@ int getlines(char s[], int lim)
 /* copy: copy 'from' into 'to'; assume to is big enough */
 void copy(char to[], char from[])
 {
- int i;
- 
- i = 0;
- while ((to[i] = from[i]) != '\0')
- ++i;
+  int i;
+  
+  i = 0;
+  while ((to[i] = from[i]) != '\0')
+  ++i;
 }
