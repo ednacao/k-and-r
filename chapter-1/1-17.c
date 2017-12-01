@@ -20,6 +20,7 @@ int main(void)
       copy(longboy, line);
       printf("\n\nLength: %d\nLine: %s\n", len-1, longboy);
     }
+  }
 
   return 0;
 }
