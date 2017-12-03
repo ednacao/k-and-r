@@ -4,7 +4,7 @@
    
 #include <stdio.h>
 
-#define MAXLINE 1000       /* maximum input line size */
+#define MAXLINE 10       /* maximum input line size */
 
 int getlines(char line[], int maxline);
 void copy(char to[], char from[]);
@@ -12,7 +12,7 @@ void copy(char to[], char from[]);
 /* print longest input line */
 int main(void)
 {
-   int  len;              /* current line length        */
+   int  c, len;           /* current line length        */
    int  max;              /* maximum length seen so far */
    char line[MAXLINE];    /* current input line         */
    char longest[MAXLINE]; /* longest line saved here    */
@@ -20,6 +20,14 @@ int main(void)
    max = 0;
    while ((len = getlines(line, MAXLINE)) > 0)
    {
+     if (line[len-1] != '\n') /* if last char is not newline, keep counting length */
+     {
+       while ((c = getchar()) !=EOF && c!= '\n')
+         ++len;
+               
+       if (c == '\n')
+         ++len;
+     }
      if (len > max)
      {
        max = len;
@@ -27,7 +35,7 @@ int main(void)
      }
    }
    if (max > 0)           /* there was a line */
-       printf("Length: %d\nLongest Line: %s", max-1, longest);
+       printf("\nActual Line Length: %d\nText of Longest Line: %s\n", max-1, longest);
 
    return 0;
 }
