@@ -7,17 +7,27 @@
 
    int main(void)
    {
-     int c, i, prevblank;
+     int c, i, prevblank, prevline;
      char line[MAXLINE];
      
      i = 0;
      prevblank = 0;
+     prevline  = 0;
      
      while ((c = getchar()) != EOF)
      {
-       if (c == ' ' || c == '\t')
+       if (c == '\n')
        {
-         if (prevblank == 0)
+         if (prevline == 0)
+         {
+           line[i] = c;
+           prevline = 1;
+           ++i;
+         }
+       }
+       else if (c == ' ' || c == '\t')
+       {
+         if (prevblank == 0 && prevline == 0)
          {
            line[i] = c;
            prevblank = 1;
@@ -28,6 +38,7 @@
        {
          line[i] = c;
          prevblank = 0;
+         prevline = 0;
          ++i;
        }
      }
