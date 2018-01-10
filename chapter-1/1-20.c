@@ -19,7 +19,7 @@
        spaces = 8 - (linelength % 8);
        
        for (i = 0; i < spaces; ++i)
-        putchar('o');
+        putchar(' ');
         
        linelength = linelength + spaces;
      }
