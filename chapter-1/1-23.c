@@ -5,8 +5,7 @@
 
 #include <stdio.h>
 
-int main(void)
-{
+int main(void) {
   int c, lastchar, state;
   
   lastchar  = state  = 0;
@@ -23,69 +22,68 @@ int main(void)
  * state 10: reached end of string
  */
 
-  while ((c = getchar()) !=EOF) 
-  {      
+  while ((c = getchar()) !=EOF) {      
       if (state == 0) {
-        if (c == '/')         {
+        if (c == '/')           {
             lastchar = c;
             state = 1;
-        } else if (c == '"')  {
+        } else if (c == '"')    {
             state = 6;
         } else {
             state = 0;
         }
         
       
-      } else if (state == 1)  {
+      } else if (state == 1)    {
         if (c == '*') {
             state = 2;
         } else {
             state = 0;
         }
         
-      } else if (state == 2)  {
+      } else if (state == 2)    {
         if (c == '*') {
             state = 4;
         } else {
             state = 2;
         }
         
-      } else if (state == 4)  {
+      } else if (state == 4)    {
         if (c == '/') {
             state = 5;
         } else {
             state = 2;
         }
-      } else if (state == 5) {
+      } else if (state == 5)    {
         if (c == '/') {
           state = 1;
         } else {
           state = 0;
         }
         
-      } else if (state == 6)  {
+      } else if (state == 6)    {
         if (c == '"') {
             state = 10;
-        } else if (c == '\\') {
+        } else if (c == '\\')   {
             state = 7;
         } else {
             state = 6;
         }
         
-      } else if (state == 7)  {
+      } else if (state == 7)    {
         if (c == '"') {
             state = 7;
-        } else if (c == '\\') {
+        } else if (c == '\\')   {
             state = 8;
         } else {
             state = 6;
         }
         
-      } else if (state == 8)  {
+      } else if (state == 8)    {
         if (c == '"') {
             state = 10;
         }
-      } else if (state == 10) {
+      } else if (state == 10)   {
         if (c == '\\') {
             state = 1;
         } else {
