@@ -7,15 +7,16 @@
 
 int main(void)
 {
-  int c, state;
+  int c, lastchar, state;
   
-  state = 0;
+  lastchar  = state  = 0;
   
 /* 
- * state 0: not inside a comment or string / reached end of comment
+ * state 0: not inside a comment or string
  * state 1: possibly beginning of a comment
  * state 2: inside of a comment
  * state 4: possibly exiting a comment
+ * state 5: end of comment
  * state 6: inside of a string
  * state 7: possible end of string / escape sequence
  * state 8: possible end of string / escape sequence
@@ -25,13 +26,15 @@ int main(void)
   while ((c = getchar()) !=EOF) 
   {      
       if (state == 0) {
-        if (c == '/') {
+        if (c == '/')         {
+            lastchar = c;
             state = 1;
         } else if (c == '"')  {
             state = 6;
         } else {
             state = 0;
         }
+        
       
       } else if (state == 1)  {
         if (c == '*') {
@@ -49,10 +52,17 @@ int main(void)
         
       } else if (state == 4)  {
         if (c == '/') {
-            state = 0;
+            state = 5;
         } else {
             state = 2;
         }
+      } else if (state == 5) {
+        if (c == '/') {
+          state = 1;
+        } else {
+          state = 0;
+        }
+        
       } else if (state == 6)  {
         if (c == '"') {
             state = 10;
@@ -61,6 +71,7 @@ int main(void)
         } else {
             state = 6;
         }
+        
       } else if (state == 7)  {
         if (c == '"') {
             state = 7;
@@ -69,6 +80,7 @@ int main(void)
         } else {
             state = 6;
         }
+        
       } else if (state == 8)  {
         if (c == '"') {
             state = 10;
@@ -81,7 +93,10 @@ int main(void)
         }
       }
       
-  printf("%c%d\n", c, state);
+      if (state == 0 && lastchar == '/') {
+        printf("%c", c);
+      }    
+
   }
   
   return 0;
