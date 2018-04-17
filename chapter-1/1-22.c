@@ -5,14 +5,6 @@
  * lines, and if there are no blanks or tabs before the specified column.
  */
  
- /* 	
-Try folding the line after the last non-blank character before the nth column  
--- one way to do this is once i hit the n, to then go back
-and check what the last non-char space was, and then
-reset count (placeholder var) to zero and replace that 
-placeholder var with '/n' as to break the line up
-*/
- 
 #include <stdio.h>
 
 #define MAXLINE 1000   /* maximum input line size */
